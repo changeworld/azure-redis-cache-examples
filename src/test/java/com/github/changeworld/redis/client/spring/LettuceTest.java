@@ -3,8 +3,6 @@ package com.github.changeworld.redis.client.spring;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.springframework.data.redis.connection.lettuce.DefaultLettucePool;
-import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
 import redis.embedded.RedisServer;
 
 import java.io.IOException;
@@ -16,10 +14,11 @@ import static org.junit.Assert.fail;
  * @author changeworld
  */
 public class LettuceTest {
-    private static final String FOO = "foo";
-    private static final String BAR = "bar";
-    private static final String HOST = "localhost";
-    private static final int PORT = 6379;
+    static final String FOO = "foo";
+    static final String BAR = "bar";
+    static final String HOST = "localhost";
+    static final int PORT = 6379;
+    static final String TYPE = "lettuce";
     static final RedisServer REDIS_SERVER = newRedisServer();
 
     static RedisServer newRedisServer() {
@@ -45,14 +44,9 @@ public class LettuceTest {
     }
 
     @Test
-    public void shouldSpringDataRedisCanGetAfterSet() {
+    public void shouldLettuceCanGetAfterSet() {
         try {
-            DefaultLettucePool defaultLettucePool = new DefaultLettucePool(HOST, PORT);
-            defaultLettucePool.afterPropertiesSet();
-            LettuceConnectionFactory lettuceConnectionFactory = new LettuceConnectionFactory(defaultLettucePool);
-            lettuceConnectionFactory.afterPropertiesSet();
-            lettuceConnectionFactory.setShareNativeConnection(true);
-            DataRedis client = new DataRedis(lettuceConnectionFactory);
+            DataRedis client = new DataRedis(HOST, PORT, null, TYPE, false);
             client.set(FOO, BAR);
             assertEquals(BAR, client.get(FOO));
         } catch (Exception e) {
