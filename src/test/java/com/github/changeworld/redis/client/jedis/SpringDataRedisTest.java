@@ -2,7 +2,7 @@ package com.github.changeworld.redis.client.jedis;
 
 import java.io.IOException;
 
-import com.github.changeworld.redis.client.SpringDataRedisClient;
+import com.github.changeworld.redis.client.SpringDataRedis;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author changeworld
  */
-public class SpringDataRedisClientTest {
+public class SpringDataRedisTest {
     static final String FOO = "foo";
     static final String BAR = "bar";
     static final String HOST = "localhost";
@@ -47,7 +47,7 @@ public class SpringDataRedisClientTest {
     @Test
     public void shouldSpringDataRedisCanReadWrite() {
         try {
-            SpringDataRedisClient client = new SpringDataRedisClient(new JedisConnectionFactory(new JedisShardInfo(HOST, PORT)));
+            SpringDataRedis client = new SpringDataRedis(new JedisConnectionFactory(new JedisShardInfo(HOST, PORT)));
             client.set(FOO, BAR);
             assertEquals(BAR, client.get(FOO));
         } catch (Exception e) {

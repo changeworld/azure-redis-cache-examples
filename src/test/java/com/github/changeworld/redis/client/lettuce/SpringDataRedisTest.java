@@ -1,6 +1,6 @@
 package com.github.changeworld.redis.client.lettuce;
 
-import com.github.changeworld.redis.client.SpringDataRedisClient;
+import com.github.changeworld.redis.client.SpringDataRedis;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -16,7 +16,7 @@ import static org.junit.Assert.fail;
 /**
  * @author changeworld
  */
-public class SpringDataRedisClientTest {
+public class SpringDataRedisTest {
     private static final String FOO = "foo";
     private static final String BAR = "bar";
     private static final String HOST = "localhost";
@@ -53,7 +53,7 @@ public class SpringDataRedisClientTest {
             LettuceConnectionFactory lettuceConnectionFactory = new LettuceConnectionFactory(defaultLettucePool);
             lettuceConnectionFactory.afterPropertiesSet();
             lettuceConnectionFactory.setShareNativeConnection(true);
-            SpringDataRedisClient client = new SpringDataRedisClient(lettuceConnectionFactory);
+            SpringDataRedis client = new SpringDataRedis(lettuceConnectionFactory);
             client.set(FOO, BAR);
             assertEquals(BAR, client.get(FOO));
         } catch (Exception e) {

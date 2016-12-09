@@ -9,10 +9,10 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 /**
  * @author changeworld
  */
-public class SpringDataRedisClient implements BaseClient {
+public class SpringDataRedis implements BaseClient {
     private RedisTemplate<Object, Object> redisTemplate;
 
-    public SpringDataRedisClient(RedisConnectionFactory redisConnectionFactory) {
+    public SpringDataRedis(RedisConnectionFactory redisConnectionFactory) {
         redisTemplate = new RedisTemplate();
         redisTemplate.setConnectionFactory(redisConnectionFactory);
         redisTemplate.setKeySerializer(new StringRedisSerializer());
