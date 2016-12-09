@@ -1,6 +1,6 @@
-package com.github.changeworld.redis.client.lettuce;
+package com.github.changeworld.redis.client.spring;
 
-import com.github.changeworld.redis.client.SpringDataRedis;
+import com.github.changeworld.redis.client.spring.SpringDataRedis;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -16,7 +16,7 @@ import static org.junit.Assert.fail;
 /**
  * @author changeworld
  */
-public class SpringDataRedisTest {
+public class LettuceTest {
     private static final String FOO = "foo";
     private static final String BAR = "bar";
     private static final String HOST = "localhost";

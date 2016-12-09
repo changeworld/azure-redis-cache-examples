@@ -1,8 +1,8 @@
-package com.github.changeworld.redis.client.jedis;
+package com.github.changeworld.redis.client.spring;
 
 import java.io.IOException;
 
-import com.github.changeworld.redis.client.SpringDataRedis;
+import com.github.changeworld.redis.client.spring.SpringDataRedis;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author changeworld
  */
-public class SpringDataRedisTest {
+public class JedisTest {
     static final String FOO = "foo";
     static final String BAR = "bar";
     static final String HOST = "localhost";
@@ -45,7 +45,7 @@ public class SpringDataRedisTest {
     }
 
     @Test
-    public void shouldSpringDataRedisCanReadWrite() {
+    public void shouldJedisCanReadWrite() {
         try {
             SpringDataRedis client = new SpringDataRedis(new JedisConnectionFactory(new JedisShardInfo(HOST, PORT)));
             client.set(FOO, BAR);

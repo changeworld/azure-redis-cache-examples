@@ -1,7 +1,8 @@
-package com.github.changeworld.redis.client;
+package com.github.changeworld.redis.client.spring;
 
 import java.io.IOException;
 
+import com.github.changeworld.redis.client.BaseClient;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
