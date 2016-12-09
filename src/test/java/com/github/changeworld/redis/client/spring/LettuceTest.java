@@ -1,6 +1,5 @@
 package com.github.changeworld.redis.client.spring;
 
-import com.github.changeworld.redis.client.spring.SpringDataRedis;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -53,7 +52,7 @@ public class LettuceTest {
             LettuceConnectionFactory lettuceConnectionFactory = new LettuceConnectionFactory(defaultLettucePool);
             lettuceConnectionFactory.afterPropertiesSet();
             lettuceConnectionFactory.setShareNativeConnection(true);
-            SpringDataRedis client = new SpringDataRedis(lettuceConnectionFactory);
+            DataRedis client = new DataRedis(lettuceConnectionFactory);
             client.set(FOO, BAR);
             assertEquals(BAR, client.get(FOO));
         } catch (Exception e) {

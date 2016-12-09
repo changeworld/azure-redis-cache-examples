@@ -2,7 +2,6 @@ package com.github.changeworld.redis.client.spring;
 
 import java.io.IOException;
 
-import com.github.changeworld.redis.client.spring.SpringDataRedis;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -47,7 +46,7 @@ public class JedisTest {
     @Test
     public void shouldJedisCanReadWrite() {
         try {
-            SpringDataRedis client = new SpringDataRedis(new JedisConnectionFactory(new JedisShardInfo(HOST, PORT)));
+            DataRedis client = new DataRedis(new JedisConnectionFactory(new JedisShardInfo(HOST, PORT)));
             client.set(FOO, BAR);
             assertEquals(BAR, client.get(FOO));
         } catch (Exception e) {
