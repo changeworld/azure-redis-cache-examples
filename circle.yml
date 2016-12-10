@@ -1,0 +1,11 @@
+machine:
+  timezone:
+    Asia/Tokyo
+  java:
+    version: oraclejdk8
+dependencies:
+  override:
+    - mvn clean dependency:resolve
+test:
+  override:
+    - mvn test
