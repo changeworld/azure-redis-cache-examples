@@ -1,4 +1,4 @@
-package com.github.changeworld.redis.client.spring;
+package com.github.changeworld.redis.client.springdata;
 
 import java.io.IOException;
 import org.junit.AfterClass;

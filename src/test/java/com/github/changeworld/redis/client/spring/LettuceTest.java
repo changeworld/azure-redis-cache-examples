@@ -1,4 +1,4 @@
-package com.github.changeworld.redis.client.spring;
+package com.github.changeworld.redis.client.springdata;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
