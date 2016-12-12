@@ -3,8 +3,6 @@ package com.github.changeworld.redis.client.springdata;
 import java.io.IOException;
 
 import com.github.changeworld.redis.client.BaseClient;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.connection.lettuce.DefaultLettucePool;
@@ -16,10 +14,10 @@ import redis.clients.jedis.JedisShardInfo;
 /**
  * @author changeworld
  */
-public class DataRedis implements BaseClient {
+public class Redis implements BaseClient {
     private RedisTemplate<Object, Object> redisTemplate;
 
-    public DataRedis(String host, int port, String password, String type, boolean cluster) {
+    public Redis(String host, int port, String password, String type, boolean cluster) {
         if (type.equals("jedis")) {
             redisTemplate(new JedisConnectionFactory(new JedisShardInfo(host, port)));
         } else {
