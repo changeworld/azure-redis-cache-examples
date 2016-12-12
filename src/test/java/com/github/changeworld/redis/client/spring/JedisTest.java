@@ -44,7 +44,7 @@ public class JedisTest {
     @Test
     public void shouldJedisCanReadWrite() {
         try {
-            DataRedis client = new DataRedis(HOST, PORT, null, TYPE, false);
+            Redis client = new Redis(HOST, PORT, null, TYPE, false);
             client.set(FOO, BAR);
             assertEquals(BAR, client.get(FOO));
         } catch (Exception e) {
