@@ -4,6 +4,11 @@
 
 Examples of use Microsoft Azure Redis Cache.
 
+## Requirements
+
+* Java SE Development Kit 8
+* Maven 3.2 (or later)
+
 ## Build
 
 Build with Maven.
