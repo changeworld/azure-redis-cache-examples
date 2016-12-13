@@ -17,3 +17,7 @@ Build with Maven.
 $ cd target-project
 $ mvn clean compile
 ```
+
+## License
+
+[MIT License](LICENSE)
