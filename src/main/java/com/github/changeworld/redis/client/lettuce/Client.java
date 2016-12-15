@@ -33,14 +33,16 @@ public class Client implements BaseClient {
         return this.connection;
     }
 
-    @Override
     public void set(String key, String value) throws IOException {
         getConnection().set(key, value);
     }
 
-    @Override
     public String get(String key) throws IOException {
         return (String) getConnection().get(key);
+    }
+
+    public void del(String key) throws IOException {
+        getConnection().del(key);
     }
 
     public void close() {

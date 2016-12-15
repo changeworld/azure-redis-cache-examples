@@ -59,6 +59,7 @@ public class ClientTest {
             client = new Client(new Jedis(new JedisShardInfo(HOST, PORT)));
             client.set(FOO, BAR);
             assertEquals(BAR, client.get(FOO));
+            client.del(FOO);
         } catch (Exception e) {
             e.printStackTrace();
             fail();

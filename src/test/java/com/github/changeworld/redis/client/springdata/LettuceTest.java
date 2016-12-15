@@ -49,6 +49,7 @@ public class LettuceTest {
             Redis client = new Redis(HOST, PORT, null, TYPE, false);
             client.set(FOO, BAR);
             assertEquals(BAR, client.get(FOO));
+            client.del(FOO);
         } catch (Exception e) {
             e.printStackTrace();
             fail();

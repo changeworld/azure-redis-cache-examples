@@ -18,14 +18,16 @@ public class Client implements BaseClient {
         return this.jedis;
     }
 
-    @Override
     public void set(String key, String value) throws IOException {
         getRedisClient().set(key, value);
     }
 
-    @Override
     public String get(String key) throws IOException {
         return getRedisClient().get(key);
+    }
+
+    public void del(String key) throws IOException {
+        getRedisClient().del(key);
     }
 
     public void close() {
