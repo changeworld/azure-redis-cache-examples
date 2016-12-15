@@ -46,13 +46,15 @@ public class Redis implements BaseClient {
         redisTemplate.afterPropertiesSet();
     }
 
-    @Override
     public void set(String key, String value) throws IOException {
         redisTemplate.opsForValue().set(key, value);
     }
 
-    @Override
     public String get(String key) throws IOException {
         return (String) redisTemplate.opsForValue().get(key);
+    }
+
+    public void del(String key) throws IOException {
+        redisTemplate.delete(key);
     }
 }

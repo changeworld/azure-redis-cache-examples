@@ -36,14 +36,16 @@ public class Cluster implements BaseClient {
         return this.jedisCluster;
     }
 
-    @Override
     public void set(String key, String value) throws IOException {
         getRedisCluster().set(key, value);
     }
 
-    @Override
     public String get(String key) throws IOException {
         return getRedisCluster().get(key);
+    }
+
+    public void del(String key) throws IOException {
+        getRedisCluster().del(key);
     }
 
     public void close() throws IOException {

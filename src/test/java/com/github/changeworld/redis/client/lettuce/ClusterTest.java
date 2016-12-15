@@ -47,6 +47,7 @@ public class ClusterTest {
                     KEY);
             cluster.set(FOO, BAR);
             assertEquals(BAR, cluster.get(FOO));
+            cluster.del(FOO);
         } catch (Exception e) {
             e.printStackTrace();
             fail();

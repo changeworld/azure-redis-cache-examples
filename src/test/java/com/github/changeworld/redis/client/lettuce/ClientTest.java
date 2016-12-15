@@ -58,6 +58,7 @@ public class ClientTest {
             client = new Client(RedisClient.create(HOST));
             client.set(FOO, BAR);
             assertEquals(BAR, client.get(FOO));
+            client.del(FOO);
         } catch (Exception e) {
             e.printStackTrace();
             fail();

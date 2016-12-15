@@ -22,4 +22,12 @@ public interface BaseClient {
      * @throws IOException
      */
     String get(String key) throws IOException;
+
+    /**
+     * Same as DEL command in Redis
+     *
+     * @param key
+     * @throws IOException
+     */
+    void del(String key) throws IOException;
 }

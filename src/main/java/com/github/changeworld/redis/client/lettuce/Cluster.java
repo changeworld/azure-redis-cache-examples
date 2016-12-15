@@ -29,14 +29,16 @@ public class Cluster implements BaseClient {
         return this.connection;
     }
 
-    @Override
     public void set(String key, String value) throws IOException {
         getRedisClusterConnection().set(key, value);
     }
 
-    @Override
     public String get(String key) throws IOException {
         return (String) getRedisClusterConnection().get(key);
+    }
+
+    public void del(String key) throws IOException {
+        getRedisClusterConnection().del(key);
     }
 
     public void close() throws IOException {
