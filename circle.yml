@@ -1,11 +1,8 @@
 machine:
   timezone:
     Asia/Tokyo
-  java:
-    version: oraclejdk8
-dependencies:
-  override:
-    - mvn clean dependency:resolve
+  services:
+    - docker
 test:
   override:
-    - mvn test
+    - docker run -it --rm --name azure-redis-cache -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3.3.9-jdk-8 mvn clean dependency:resolve;mvn test
