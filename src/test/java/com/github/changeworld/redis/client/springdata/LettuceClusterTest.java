@@ -30,13 +30,14 @@ public class LettuceClusterTest {
         assertSame(FOO, FOO);
     }
 
+    @Autowired
+    RedisTemplate<Object, Object> redisTemplate;
+
     /*
      * Embedded Redis 0.6 supports only the Redis Version 2.8.19.
      * However, Redis 3.0 or greater is required for the Redis Cluster function.
      * So, the following works only with Redis Version 3.x.
-    @Autowired
-    RedisTemplate<Object, Object> redisTemplate;
-
+     *
     @Before
     public void setUp() {
         redisTemplate.execute(new RedisCallback<String>() {
