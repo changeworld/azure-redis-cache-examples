@@ -17,14 +17,22 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @EnableAutoConfiguration
 @EnableConfigurationProperties({RedisProperties.class})
 public class RedisConfig {
+    LettuceConnectionFactory connectionFactory;
+
     @Bean
     @Autowired
-    RedisConnectionFactory redisConnectionFactory(RedisProperties redisProperties, RedisClusterConfiguration redisClusterConfiguration) {
-        LettuceConnectionFactory lettuceConnectionFactory = new LettuceConnectionFactory(redisClusterConfiguration);
-        lettuceConnectionFactory.setHostName(redisProperties.getHost());
-        lettuceConnectionFactory.setPassword(redisProperties.getPassword());
-        lettuceConnectionFactory.setPort(redisProperties.getPort());
-        return lettuceConnectionFactory;
+    RedisConnectionFactory redisConnectionFactory(RedisProperties properties) {
+        if (properties.getCluster() != null) {
+            new RedisClusterConfiguration(properties.getCluster().getNodes());
+            connectionFactory = new LettuceConnectionFactory(
+                    new RedisClusterConfiguration(properties.getCluster().getNodes())
+            );
+        } else {
+            connectionFactory = new LettuceConnectionFactory(properties.getHost(),
+                    properties.getPort());
+        }
+        if (properties.getPassword() != null) connectionFactory.setPassword(properties.getPassword());
+        return connectionFactory;
     }
 
     @Bean
